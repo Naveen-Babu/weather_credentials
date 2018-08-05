@@ -18,9 +18,23 @@ class Example:
         data = r.json()
         return (data)
 
+
+#fake apis
+
     def users(self):
         URL = "https://jsonplaceholder.typicode.com/users"
+        req = requests.get(url = URL)   
+        #print (req)
+        user_data = req.json()
+        #print(user_data)
+        return (user_data)
+
+b = Example()
+print(b.users())
+
         
+
+
 
 
 

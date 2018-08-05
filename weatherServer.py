@@ -4,9 +4,12 @@ from classCode import Example
 from datetime import datetime
 import json
 app = Flask(__name__)
+
+ obj = Example()
+
 @app.route("/", methods=['GET'])     
 def hello():
-    obj = Example()
+    #obj = Example()
     #print (obj.myfunc())
     print("\n")
     print ("naveen")
@@ -48,7 +51,6 @@ def hello():
     m_temp_max = s['main']['temp_max']
     print ('max temperature : ', m_temp_max)
     country = s['sys']['country']
-    
     vis = s['visibility']
     print('visibility : ', vis)
     print("\n")
@@ -58,14 +60,12 @@ def hello():
     w_deg = s['wind']['deg']
     print("wind degrees: ",w_deg)
     print ('\n')
-
     print("cloud details")
     cloud = s['clouds']['all']
     print('all : ',cloud) 
     print('\n')   
     d_t = s['dt']
     print('dt : ', d_t)    
-
     print('sys details')
     s_type = s['sys']['type'] 
     print('type : ', s_type)
@@ -89,9 +89,17 @@ def hello():
     print("id : ",iden)
     code = s['cod']
     print("cod : ",code)
-     
-    
     return ("hello world")
+
+#fake api's code
+@app.route("/users", methods=['GET'])   
+def fake():
+    
+
+
+
+
+
 if __name__ == '__main__':
     #print ("success")
     app.run(debug=True)
