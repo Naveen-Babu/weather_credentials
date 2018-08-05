@@ -18,6 +18,15 @@ class Example:
         data = r.json()
         return (data)
 
+    def users(self):
+        URL = "https://jsonplaceholder.typicode.com/users"
+        
+
+
+
+
+
+
 
 
 
