@@ -5,7 +5,7 @@ from datetime import datetime
 import json
 app = Flask(__name__)
 
- obj = Example()
+obj = Example()
 
 @app.route("/", methods=['GET'])     
 def hello():
@@ -26,7 +26,7 @@ def hello():
     print (coord_latitude)
     print("\n")
     print("weather details")
-    for w in s['weather']:
+    for w in s['weather']:   #to parse a json array
         w_id = w['id']
         print ('weather-id :', w_id)
         w_main = w['main']
@@ -94,7 +94,32 @@ def hello():
 #fake api's code
 @app.route("/users", methods=['GET'])   
 def fake():
+    fake_data = obj.users()
+    #print (fake_data)
+    for f in fake_data:
+        f_name = f['name']
+        f_id = f['id']
+        f_city = f['address']['city']
+        f_lat = f['address']['geo']['lat']
+        f_long = f['address']['geo']['lng']
+        f_mob = f['phone']
+        f_company = f['company']['name']
+        #print('\n')
+        print ("name : ",f_name)        
+        print ("id : ",f_id)
+        print ('company name : ',f_company)
+        print ('city : ',f_city)
+        print ("latitude : ",f_lat)
+        print ("longitude : ",f_long)
+        print ('phone : ',f_mob)
+        print('\n')
+    return ("users world")
+
+@app.route("/opensource", methods=['GET'])   
+def os():
     
+ 
+
 
 
 

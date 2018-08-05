@@ -19,7 +19,7 @@ class Example:
         return (data)
 
 
-#fake apis
+#fake apis code
 
     def users(self):
         URL = "https://jsonplaceholder.typicode.com/users"
@@ -29,8 +29,7 @@ class Example:
         #print(user_data)
         return (user_data)
 
-b = Example()
-print(b.users())
+
 
         
 
