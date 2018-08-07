@@ -92,6 +92,7 @@ def hello():
     return ("hello world")
 
 #fake api's code
+
 @app.route("/users", methods=['GET'])   
 def fake():
     fake_data = obj.users()
@@ -117,14 +118,38 @@ def fake():
 
 @app.route("/opensource", methods=['GET'])   
 def os():
+    print ("Inside dummies")
+
+    with open('weather.json') as json_file:  #read
+        d = json.load(json_file)
+        print("1234")
+        print(d)
+        d_id = d['id']
+        d_type = d["type"]
+        d_name = d["name"]
+        d_ppu = d["ppu"]             
+        #batters = d['batters']
+        #print (batters) 
+        
+        print("id :",d_id)
+        print("type :",d_type)
+        print("name :",d_name)
+        print("ppu :",d_ppu)
+
+        for b in d['batters']['batter']:    #prints inside batter array
+            #print("for loop")
+            print ("id : ",b['id'])
+            print ("type : ",b['type'])
+
+        for t in topping:
+            print ("id : ",top['id'])
+
     
- 
-
-
-
-
-
-
+        
+    return ("open source.adobe")
+    #return jsonify(topic=d["Topic"], msg=d["Message"])    #returns to html in json format    
+    
+    
 if __name__ == '__main__':
     #print ("success")
     app.run(debug=True)
