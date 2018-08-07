@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, session, abort, flash, redirect
 from flask import render_template
-from classCode import Example
+from classCode import Example     #Example class in classcode file
 from datetime import datetime
 import json
 app = Flask(__name__)
@@ -96,7 +96,7 @@ def hello():
 @app.route("/users", methods=['GET'])   
 def fake():
     fake_data = obj.users()
-    #print (fake_data)
+    print (fake_data)
     for f in fake_data:
         f_name = f['name']
         f_id = f['id']
@@ -135,17 +135,17 @@ def os():
         print("type :",d_type)
         print("name :",d_name)
         print("ppu :",d_ppu)
-
-        for b in d['batters']['batter']:    #prints inside batter array
-            #print("for loop")
-            print ("id : ",b['id'])
-            print ("type : ",b['type'])
-
-        for t in topping:
-            print ("id : ",top['id'])
-
-    
         
+        print("for loop")
+        for b in d['batters']['batter']:    #prints inside batter array of batters object
+            
+            print ("id : " + b['id'] + ", " + "type : ",b['type'])
+        
+        print ("toppings")
+        for t in d['topping']:     #prints array
+            
+            print ("id :", t['id'] + ", " + "type : " + t['type'])
+
     return ("open source.adobe")
     #return jsonify(topic=d["Topic"], msg=d["Message"])    #returns to html in json format    
     
