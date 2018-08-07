@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, session, abort, flash, redirect
 from flask import render_template
-from classCode import Example     #Example class in classcode file
+from classCode import Example     #Example() class in classcode file
 from datetime import datetime
 import json
 app = Flask(__name__)
